@@ -1,8 +1,14 @@
-# TODO LIST
+# XUnit Example
 
-* <s>Invoke test method</s>
-* Invoke setUp first
-* Invoke tearDown afterward
-* Invoke tearDown even if the test
-* Method fails Run multiple tests
-* Report collected results
+## Introduction
+
+This is an small dart project following the "Test-Driven Development By Example" by Kent Beck. 
+
+## Detail
+A sample command-line application with an entrypoint in `bin/`, library code
+in `lib/`, and example unit test in `test/`.
+
+## Project Template
+This project template was created by running 
+```console
+dart create -t console xunit_example
