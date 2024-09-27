@@ -14,5 +14,9 @@ abstract class TestCase {
 
     InstanceMirror instanceMirror = reflect(this);
     instanceMirror.invoke(Symbol(name), []);
+
+    if (this is WasRun) {
+      (this as WasRun).tearDown();
+    }
   }
 }

@@ -9,14 +9,18 @@ class WasRun extends TestCase {
     wasSetUp = false;
   }
 
+  void setUp() {
+    wasRun = false;
+    wasSetUp = true;
+    log = "setUp ";
+  }
+
   void testMethod() {
     wasRun = true;
     log += "testMethod ";
   }
 
-  void setUp() {
-    wasRun = false;
-    wasSetUp = true;
-    log = "setUp ";
+  void tearDown() {
+    log += "tearDown ";
   }
 }

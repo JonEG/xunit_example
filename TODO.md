@@ -1,6 +1,6 @@
 # TODO LIST
 
-* Invoke tearDown afterward
+* <s>Invoke tearDown afterward</s>
 * Invoke tearDown even if the test method fails
 * Run multiple tests
 * Report collected results
