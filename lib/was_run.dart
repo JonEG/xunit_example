@@ -2,13 +2,19 @@ import 'test_case.dart';
 
 class WasRun extends TestCase {
   late bool wasRun;
+  late bool wasSetUp;
 
   WasRun(super.name) {
-    wasRun = false;
+    wasSetUp = false;
   }
 
   bool testMethod() {
     wasRun = true;
     return wasRun;
+  }
+
+  void setUp() {
+    wasRun = false;
+    wasSetUp = true;
   }
 }

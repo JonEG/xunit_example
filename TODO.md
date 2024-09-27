@@ -1,7 +1,7 @@
 # TODO LIST
 
 * <s>Invoke test method</s>
-* Invoke setUp first
+* <s>Invoke setUp first</s>
 * Invoke tearDown afterward
 * Invoke tearDown even if the test
 * Method fails Run multiple tests
