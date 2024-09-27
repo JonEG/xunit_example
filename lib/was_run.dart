@@ -1,22 +1,15 @@
 import 'test_case.dart';
 
 class WasRun extends TestCase {
-  late bool wasRun;
-  late bool wasSetUp;
   late String log;
 
-  WasRun(super.name) {
-    wasSetUp = false;
-  }
+  WasRun(super.name) {}
 
   void setUp() {
-    wasRun = false;
-    wasSetUp = true;
     log = "setUp ";
   }
 
   void testMethod() {
-    wasRun = true;
     log += "testMethod ";
   }
 
