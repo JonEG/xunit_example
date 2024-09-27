@@ -1,5 +1,5 @@
-import 'package:xunit_example/xunit_example.dart' as xunit_example;
+import '../lib/test_case_test.dart';
 
 void main(List<String> arguments) {
-  print('Hello world: ${xunit_example.calculate()}!');
+  TestCaseTest("testRunning").run();
 }
