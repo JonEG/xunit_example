@@ -8,11 +8,11 @@ abstract class TestCase {
   TestCase(this.name);
 
   void run() {
-    this.setUp();
+    if (this is WasRun) {
+      (this as WasRun).setUp();
+    }
 
     InstanceMirror instanceMirror = reflect(this);
     instanceMirror.invoke(Symbol(name), []);
   }
-
-  void setUp();
 }

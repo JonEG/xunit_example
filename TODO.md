@@ -1,8 +1,9 @@
 # TODO LIST
 
+* Invoke tearDown afterward
+* Invoke tearDown even if the test method fails
+* Run multiple tests
+* Report collected results
 * <s>Invoke test method</s>
 * <s>Invoke setUp first</s>
-* Invoke tearDown afterward
-* Invoke tearDown even if the test
-* Method fails Run multiple tests
-* Report collected results
+* <s>Log string in WasRun</s>

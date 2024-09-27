@@ -6,17 +6,9 @@ class TestCaseTest extends TestCase {
 
   TestCaseTest(super.name);
 
-  void setUp() {
+  void testTemplateMethod() {
     test = WasRun('testMethod');
-  }
-
-  void testRunning() {
     test.run();
-    assert(test.wasRun);
-  }
-
-  void testSetUp() {
-    test.run();
-    assert(test.wasSetUp);
+    assert(test.log == 'setUp testMethod ');
   }
 }
