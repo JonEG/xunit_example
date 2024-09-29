@@ -25,4 +25,18 @@ class TestCaseTest extends TestCase {
     TestResult result = test.run();
     assert(result.summary() == "1 run, 1 failed");
   }
+
+  void testBrokenSetUp() {
+    test = WasRun('testMethod');
+    //failing setUp
+    TestResult result = test.run(setUp: () => throw 'Making setup fail!');
+    assert(result.summary() == "1 run, 1 failed");
+  }
+
+  void testFailedResultFormatting() {
+    TestResult result = TestResult();
+    result.testStarted();
+    result.testFailed();
+    assert(result.summary() == '1 run, 1 failed');
+  }
 }

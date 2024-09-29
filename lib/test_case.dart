@@ -9,15 +9,19 @@ abstract class TestCase {
 
   TestCase(this.name);
 
-  TestResult run() {
+  TestResult run({Function? setUp}) {
     TestResult result = TestResult();
     result.testStarted();
     if (this is WasRun) {
-      (this as WasRun).setUp();
+      (this as WasRun).setUp(callback: setUp);
     }
 
     InstanceMirror instanceMirror = reflect(this);
-    instanceMirror.invoke(Symbol(name), []);
+    try {
+      instanceMirror.invoke(Symbol(name), []);
+    } catch (e) {
+      result.testFailed();
+    }
 
     if (this is WasRun) {
       (this as WasRun).tearDown();
