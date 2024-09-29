@@ -1,5 +1,7 @@
 import 'dart:mirrors';
 
+import 'package:xunit_example/test_result.dart';
+
 import 'was_run.dart';
 
 abstract class TestCase {
@@ -7,7 +9,9 @@ abstract class TestCase {
 
   TestCase(this.name);
 
-  void run() {
+  TestResult run() {
+    TestResult result = TestResult();
+    result.testStarted();
     if (this is WasRun) {
       (this as WasRun).setUp();
     }
@@ -18,5 +22,7 @@ abstract class TestCase {
     if (this is WasRun) {
       (this as WasRun).tearDown();
     }
+
+    return result;
   }
 }
