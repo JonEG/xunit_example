@@ -9,12 +9,9 @@ abstract class TestCase {
 
   TestCase(this.name);
 
-  TestResult run({Function? setUp}) {
-    TestResult result = TestResult();
+  void run(TestResult result) {
     result.testStarted();
-    if (this is WasRun) {
-      (this as WasRun).setUp(callback: setUp);
-    }
+    setUp();
 
     InstanceMirror instanceMirror = reflect(this);
     try {
@@ -26,7 +23,7 @@ abstract class TestCase {
     if (this is WasRun) {
       (this as WasRun).tearDown();
     }
-
-    return result;
   }
+
+  void setUp();
 }

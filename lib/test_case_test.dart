@@ -1,42 +1,41 @@
 import 'package:xunit_example/test_result.dart';
+import 'package:xunit_example/test_suite.dart';
 
 import 'test_case.dart';
 import 'was_run.dart';
 
 class TestCaseTest extends TestCase {
   late WasRun test;
+  late TestResult result;
 
   TestCaseTest(super.name);
 
+  @override
+  void setUp({Function? callback}) {
+    result = TestResult();
+  }
+
   void testTemplateMethod() {
-    test = WasRun('testMethod');
-    test.run();
+    WasRun('testMethod').run(result);
     assert(test.log == 'setUp testMethod tearDown ');
   }
 
   void testResult() {
-    test = WasRun('testMethod');
-    TestResult result = test.run();
+    WasRun('testMethod').run(result);
     assert(result.summary() == "1 run, 0 failed");
   }
 
-  void testBrokenMethod() {
-    test = WasRun('testMethod');
-    TestResult result = test.run();
-    assert(result.summary() == "1 run, 1 failed");
-  }
-
-  void testBrokenSetUp() {
-    test = WasRun('testMethod');
-    //failing setUp
-    TestResult result = test.run(setUp: () => throw 'Making setup fail!');
-    assert(result.summary() == "1 run, 1 failed");
-  }
-
   void testFailedResultFormatting() {
-    TestResult result = TestResult();
     result.testStarted();
     result.testFailed();
     assert(result.summary() == '1 run, 1 failed');
+  }
+
+  void testSuite() {
+    TestSuite suite = TestSuite();
+    suite.add(WasRun("testMethod"));
+    suite.add(WasRun("testBrokenMethod"));
+    suite.run(result);
+    assert(result.summary() == "2 run, 1 failed");
   }
 }

@@ -1,7 +1,7 @@
 # TODO LIST
 
-* Invoke tearDown even if the test method fails
-* Run multiple tests
+* <s>Invoke tearDown even if the test method fails</s>
+* <s>Run multiple tests</s>
 * <s>Report failed tests</s>
 * <s>Report collected results</s>
 * <s>Invoke tearDown afterward</s>

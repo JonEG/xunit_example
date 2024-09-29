@@ -5,8 +5,8 @@ class WasRun extends TestCase {
 
   WasRun(super.name);
 
-  void setUp({Function? callback}) {
-    callback != null && callback();
+  @override
+  void setUp() {
     log = "setUp ";
   }
 
