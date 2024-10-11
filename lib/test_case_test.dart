@@ -1,3 +1,4 @@
+import 'package:xunit_example/result_listener.dart';
 import 'package:xunit_example/test_result.dart';
 import 'package:xunit_example/test_suite.dart';
 
@@ -37,5 +38,12 @@ class TestCaseTest extends TestCase {
     suite.add(WasRun("testBrokenMethod"));
     suite.run(result);
     assert(result.summary() == "2 run, 1 failed");
+  }
+
+  void testNotification() {
+    ResultListener listener = ResultListener();
+    result.addListener(listener);
+    WasRun("testMethod").run(result);
+    assert(listener.count == 1);
   }
 }

@@ -20,6 +20,8 @@ abstract class TestCase {
       result.testFailed();
     }
 
+    result.listener.startTest();
+
     if (this is WasRun) {
       (this as WasRun).tearDown();
     }

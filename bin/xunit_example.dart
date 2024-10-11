@@ -8,6 +8,7 @@ void main(List<String> arguments) {
   suite.add(TestCaseTest("testResult"));
   suite.add(TestCaseTest("testFailedResultFormatting"));
   suite.add(TestCaseTest("testSuite"));
+  suite.add(TestCaseTest("testNotification"));
   TestResult result = TestResult();
   suite.run(result);
   print(result.summary());
